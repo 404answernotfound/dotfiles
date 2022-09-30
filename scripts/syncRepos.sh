@@ -1,7 +1,7 @@
 BASEDIR="$HOME/$1"
 
 if [ $# -lt 1 ]; then
-    echo "|> Please provide a project (fe, be, qa)"
+    echo "|> Please provide a project as argument"
     exit 1
 fi
 
