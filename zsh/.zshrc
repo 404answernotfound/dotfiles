@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -120,6 +122,9 @@ eval "$(pyenv init -)"
 
 
 #personalized commands
+alias ll="ls -la"
+alias antigo="cd /Users/lorenzopieri/antidote"
+alias godev="cd /Users/lorenzopieri/Desktop/Dev"
 alias weather="clear && curl -4 http://wttr.in/Empoli"
 alias weathercerreto="clear && curl -4 https://wttr.in/Cerreto%20Guidi"
 alias wiw="watch -d=cumulative -n 5 "
@@ -127,8 +132,11 @@ alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
 alias vimdiff="nvim -d"
+alias nano="nvim" #learn vim you little shit
+
 
 #kubectl
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 alias k=kubectl
 alias kl="kubectl logs"
 alias kgp='k get pods'
@@ -140,14 +148,27 @@ alias gitrevert="git push --force origin $1:master"
 alias gitlog="git log --all --oneline"
 alias gitprettylog="git log --graph --all --oneline --decorate"
 
+alias gitc='function _xxx(){ git add .; git commit -m $1; };_xxx'
+alias gitcp='function _xxx(){ git add .; git commit -m $1; ggpush };_xxx'
+alias gitcpi='function _xxx(){ git add -p; git commit -m $1; ggpush };_xxx'
+alias gitcpp='function _xxx(){ git add .; git commit -m $1; ggpush; npm publish };_xxx'
 alias gitdiffmaster='git diff --name-status master'
 alias gitstashnew='function _xxx(){ git stash; git checkout -b $1; git stash pop };_xxx'
 alias gitstash='function _xxx(){ git stash; git checkout $1; git stash pop };_xxx'
 
+
 alias gitconfig='git config -l'
 alias git404answernotfound='git config user.name "404answernotfound" && git config user.email "404answernotfound.public@gmail.com"'
+
+alias gcloud404='gcloud config configurations activate config404 && gcloud config list'
+
+# rust
+alias rustdocs='rustup docs --book'
 
 #process helpers
 alias wholisten='function _xxx(){ lsof -i:$1 };_xxx'
 alias killwholisten='function _xxx(){ kill -9 $(lsof -i:$1 -t) };_xxx'
 alias killnode='sudo killall -9 node'
+alias killportforward='kill $(lsof -t -i:9100,9101,9102,9103,9104,9105,9106,9107,9108,9109)'
+
+
